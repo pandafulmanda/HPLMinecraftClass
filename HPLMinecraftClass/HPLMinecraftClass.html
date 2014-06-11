@@ -1,0 +1,33 @@
+<head>
+  <title>HPLMinecraftClass</title>
+</head>
+
+<body>
+		{{> hello}}
+  {{> foo}}
+</body>
+
+<template name = "hello">
+	<p> Hello, {{participant}} </p>
+	<p> Looking forward to seeing you! </p>
+</template>
+
+<template name="foo">
+	<div class="new_participant">
+    <form id="myform">
+    				First Name
+        <input type="text" name="firstname"/>
+        <br>
+        Last Name
+        <input type="text" name="lastname"/>
+        <br>
+        Participant Age
+        <input type="text" name="age"/>
+        <br>
+        Email Address
+        <input type="text" name="email"/>
+        <br>
+        <input type="submit" id="submit"/>
+    </form>
+ </div>
+</template>
