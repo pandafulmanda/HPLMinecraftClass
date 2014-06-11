@@ -14,6 +14,7 @@ Template.foo.events({'submit form' : function(event, template) {
     var data = {
       firstname: firstname.value,
       lastname: lastname.value,
+      age: age.value,
       email: email.value
     };
 
