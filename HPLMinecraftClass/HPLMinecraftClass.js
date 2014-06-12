@@ -18,6 +18,7 @@ Template.foo.events({'submit form' : function(event, template) {
       email: email.value
     };
 
+    age.value="";
     email.value="";
     firstname.value="";
     lastname.value="";
