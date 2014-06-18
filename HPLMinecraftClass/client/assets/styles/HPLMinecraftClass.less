@@ -1,5 +1,89 @@
+
+@font-face {
+  font-family: 'Kreon';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Kreon Light'), local('Kreon-Light'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/foDwQzChAOJL0-zU6ynhJ3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Kreon';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Kreon Regular'), local('Kreon-Regular'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/D9qk1GYStfykk6PrrE7M_aCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+}
+@font-face {
+  font-family: 'Kreon';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Kreon Bold'), local('Kreon-Bold'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/lG8WSXDYq5VbwwKU5QHgb3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/vzIUHo9z-oJ4WgkpPOtg13YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/Hgo13k-tfSpn0qi1SFdUfbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/d-6IYplOFocCacKzxwXSOLO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Roboto Black'), local('Roboto-Black'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/mnpfi9pxYH-Go5UiibESIrO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 100;
+  src: local('Roboto Thin Italic'), local('Roboto-ThinItalic'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/12mE4jfMSBTmg-81EiS-Yb3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/7m8l7TlFO-S3VkhHuR0at7rIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/1pO9eUAp8pSF8VnRTP3xnnYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/t6Nd4cfPRhZP44Q5QAjcC7rIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(http://themes.googleusercontent.com/static/fonts/roboto/v11/bmC0pGMXrhphrZJmniIZpbrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
+
+
 // Core variables and mixins
 @import "/packages/bootstrap3-less/lib/less/variables.import.less";
+
+@brand-primary:         lighten(#BD10E0, 10%);
 
 // Small screen / tablet
 @container-tablet:             ((720px + @grid-gutter-width));
@@ -21,6 +105,7 @@
 
 @headings-font-weight: 200;
 @font-family-serif: 'Kreon', serif;
+@font-family-sans-serif: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
 // @headings-font-family:        @font-family-serif;
 // @headings-font-family: 'minecraftiaregular', sans-serif;
 
@@ -75,37 +160,6 @@
 @import "/packages/bootstrap3-less/lib/less/responsive-utilities.import.less";
 
 
-/* CSS declarations go here */
-@font-face {
-    font-family: 'minecraftiaregular';
-    src: url('../../../assets/fonts/minecraftia-webfont.eot');
-    src: url('../../../assets/fonts/minecraftia-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../../../assets/fonts/minecraftia-webfont.woff') format('woff'),
-         url('../../../assets/fonts/minecraftia-webfont.ttf') format('truetype'),
-         url('../../../assets/fonts/minecraftia-webfont.svg#minecraftiaregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Kreon Light'), local('Kreon-Light'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/foDwQzChAOJL0-zU6ynhJ3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
-}
-@font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Kreon Regular'), local('Kreon-Regular'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/D9qk1GYStfykk6PrrE7M_aCWcynf_cDxXwCLxiixG1c.woff) format('woff');
-}
-@font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Kreon Bold'), local('Kreon-Bold'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/lG8WSXDYq5VbwwKU5QHgb3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
-}
-
 h1, h2, h3, h4, h5, h6{
   // font-family: 'minecraftiaregular';
 }
@@ -117,32 +171,33 @@ body{
     background-size: cover;
     background-attachment:fixed;
     height: 100%;
+    letter-spacing: 1px;
 }
 .container{
     background: rgba(0, 0, 0, 0.85);
 }
 .form-group > label:not(.radio-inline){
-    color: #BD10E0;
+    color: @brand-primary;
     font-weight: 300;
     font-size: 1.5em;
 }
-
+input.form-control{
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
 .greeting {
 	font-weight: lighter;
-    font-size: 2em;
+    font-size: 1.5em;
     border-style: none none none none;
     border-color: #ccc;
     border-width: 4px;
     margin: 50px 10px;
     padding: 10px 0px;
-}
+    text-align: center;
 
-.new_participant {
-    // font-weight: bold;
-    // font-size: 1.5em;
-    // border-style: dashed none dashed none;
-    // border-color: #ccc;
-    // border-width: 4px;
-    // margin: 50px 10px;
-    // padding: 10px 0px;
+    ul{
+        list-style: none;
+    }
 }
