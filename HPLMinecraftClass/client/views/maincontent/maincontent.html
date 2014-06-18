@@ -1,3 +1,7 @@
 <template name="maincontent">
-	{{> enroll}}
+	{{#if enrolled}}
+		{{> thankyou}}
+	{{else}}
+		{{> enroll}}
+	{{/if}}
 </template>
