@@ -50,10 +50,7 @@ if (Meteor.isClient) {
 
       if(!errors){
         //Do what we need to do here;
-        age.value="";
-        email.value="";
-        firstname.value="";
-        lastname.value="";
+        template.find('form').reset();
         Participants.insert(data);//, function(err) { /* handle error */ });
         // console.log("count is up to " + Participants.find().count())
       }else{
