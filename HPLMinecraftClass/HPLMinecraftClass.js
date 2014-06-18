@@ -2,7 +2,7 @@ Participants = new Meteor.Collection("participants");
 
 if (Meteor.isClient) {
 
-Template.foo.events({'submit form' : function(event, template) {
+Template.enroll.events({'submit form' : function(event, template) {
     event.preventDefault();
 
     firstname = template.find("input[name=firstname]");
