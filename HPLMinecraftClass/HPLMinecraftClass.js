@@ -34,7 +34,7 @@ Mesosphere({
     computer: {
       required: true,
       format: "boolean",
-      message: "Help us know whther to bring you a computer to borrow!"
+      message: "Help us know whether to bring you a computer to borrow!"
     }
   }
 });

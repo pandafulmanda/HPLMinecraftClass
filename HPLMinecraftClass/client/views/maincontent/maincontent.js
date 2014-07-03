@@ -10,7 +10,10 @@ Template.maincontent.helpers({
 });
 
 Template.thankyou.helpers({
-	name: function() {
-		return Participants.findOne()['firstname'];
+  name: function() {
+    return Participants.findOne()['firstname'];
+  },
+	hasComputer: function() {
+		return Participants.findOne()['computer'];
 	}
 });

@@ -1,8 +1,13 @@
 <template name="thankyou">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <p class="greeting">Hello {{name}}, we're looking forward to seeing you in class!</p>
-      <p class="greeting"><a href="https://www.google.com/maps/place/Freed-Montrose+Neighborhood+Library/@29.735504,-95.391455,17z/data=!3m1!4b1!4m2!3m1!1s0x8640bf7d1efe6e27:0x606e3960b802fa25" target="_blank">Check here</a> for directions.</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3464.4563235419255!2d-95.391455!3d29.735503999999995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640bf7d1efe6e27%3A0x606e3960b802fa25!2sFreed-Montrose+Neighborhood+Library!5e0!3m2!1sen!2sus!4v1404360047595" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+      <p class="greeting"><a href="https://www.google.com/maps/place/Freed-Montrose+Neighborhood+Library/@29.735504,-95.391455,17z/data=!3m1!4b1!4m2!3m1!1s0x8640bf7d1efe6e27:0x606e3960b802fa25" target="_blank">Click here</a> for directions.</p>
+      <p class="greeting" style="margin-top: 0;">Hello {{name}}, we're looking forward to seeing you in class!<br/>
+      {{#if hasComputer}}
+        Please bring your computer =).
+      {{/if}}
+      </p>
     </div>
   </div>
 </template>
