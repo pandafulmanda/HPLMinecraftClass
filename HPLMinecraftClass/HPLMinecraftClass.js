@@ -1,4 +1,5 @@
 Participants = new Meteor.Collection("participants");
+// ParticipantsCounts = new Meteor.Collection("participants_counts");
 Participants.allow({
   insert : function(){
     return true;
@@ -36,11 +37,6 @@ Mesosphere({
       required: true,
       format: "phone",
       message: "Please enter a valid phone number."
-    },
-    computer: {
-      required: true,
-      format: "boolean",
-      message: "Help us know whether to bring you a computer to borrow!"
     }
   }
 });
@@ -49,6 +45,7 @@ if (Meteor.isClient) {
   Deps.autorun(function () {
     Meteor.subscribe("participants", Session.get('currentParticipantId'));
   });
+  // Meteor.subscribe("participants_counts");
 
   Template.enroll.events({'submit form' : function(event, template) {
     event.preventDefault();
@@ -63,7 +60,6 @@ if (Meteor.isClient) {
           if(!err){
             Session.set('currentParticipantId', _id);
           }
-          // Meteor.subscribe('participants', Session.get('currentParticipantId'));
         });//, function(err) { /* handle error */ });
         // console.log("count is up to " + Participants.find().count())
       }else{
@@ -92,5 +88,35 @@ if (Meteor.isServer) {
   Meteor.publish("participants", function (id) {
     return Participants.find({_id : id}, {fields: {email: 0, phone: 0, age: 0}});
   });
+
+
+  // Meteor.publish("participants_counts", function(){
+  //     var uuid = Meteor.uuid()
+  //     var self = this;
+
+  //     var unthrottled_setCount = function(){
+  //         cnt = Participants.find({}).count()
+  //         self.set("participants_counts", uuid, {count: cnt})
+  //         self.flush()
+  //     }
+
+  //     var setCount = _.throttle(unthrottled_setCount, 50)
+
+  //     var handle = Meteor._InvalidationCrossbar.listen({collection: "participants"}, function(notification, complete){
+  //         setCount();
+  //         complete();
+  //     })
+
+  //     setCount();
+  //     self.complete()
+  //     self.flush()
+
+  //     self.onStop(function(){
+  //         handle.stop();
+  //         self.unset("participants_counts", uuid, ["count"]);
+  //         self.flush();
+  //     });
+  // });
+
 
 }
