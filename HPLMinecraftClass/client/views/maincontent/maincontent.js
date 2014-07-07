@@ -1,6 +1,6 @@
 Template.maincontent.helpers({
   enrolled: function() {
-  	if (Participants.find().count() === 0) {
+  	if (Participants.find({_id : Session.get('currentParticipantId')}).count() === 0) {
   		return false;
   	}
   	else{
@@ -11,9 +11,9 @@ Template.maincontent.helpers({
 
 Template.thankyou.helpers({
   name: function() {
-    return Participants.findOne()['firstname'];
+    return Participants.findOne({_id : Session.get('currentParticipantId')})['firstname'];
   },
 	hasComputer: function() {
-		return Participants.findOne()['computer'];
+		return (Participants.findOne({_id : Session.get('currentParticipantId')})['computer'] === 'true');
 	}
 });

@@ -1,4 +1,10 @@
 Participants = new Meteor.Collection("participants");
+Participants.allow({
+  insert : function(){
+    return true;
+  }
+});
+
 
 Mesosphere({
   name: 'enrollForm',
@@ -40,6 +46,9 @@ Mesosphere({
 });
 
 if (Meteor.isClient) {
+  Deps.autorun(function () {
+    Meteor.subscribe("participants", Session.get('currentParticipantId'));
+  });
 
   Template.enroll.events({'submit form' : function(event, template) {
     event.preventDefault();
@@ -47,20 +56,20 @@ if (Meteor.isClient) {
     var data = _.object(_.pluck(data_array, 'name'), _.pluck(data_array, 'value'));
 
     Mesosphere.enrollForm.validate(data, function(errors, formFieldsObject){
-
       if(!errors){
         //Do what we need to do here;
         template.find('form').reset();
-        Participants.insert(data);//, function(err) { /* handle error */ });
+        Participants.insert(data, function(err, _id){
+          if(!err){
+            Session.set('currentParticipantId', _id);
+          }
+          // Meteor.subscribe('participants', Session.get('currentParticipantId'));
+        });//, function(err) { /* handle error */ });
         // console.log("count is up to " + Participants.find().count())
       }else{
         // console.log(errors);
       }
     });
-
-
-
-
   }});
 
 };
@@ -79,4 +88,9 @@ if (Meteor.isServer) {
         });
     }
   });
+
+  Meteor.publish("participants", function (id) {
+    return Participants.find({_id : id}, {fields: {email: 0, phone: 0, age: 0}});
+  });
+
 }
