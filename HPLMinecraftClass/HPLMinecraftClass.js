@@ -10,6 +10,7 @@ Participants.allow({
 Mesosphere({
   name: 'enrollForm',
   method: 'enroll',
+  template: 'enroll',
   fields: {
     email: {
       required: true,
@@ -17,13 +18,13 @@ Mesosphere({
       message: 'Please enter your email so we can keep you updated!'
     },
     firstname: {
-      required: true,
+      required: false,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
       message: "Please check your first name!"
     },
     lastname: {
-      required: true,
+      required: false,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
       message: "Please check your first name!"
@@ -32,11 +33,6 @@ Mesosphere({
       required: false,
       format: "integer",
       message : "Please enter a number as age."
-    },
-    phone: {
-      required: true,
-      format: "phone",
-      message: "Please enter a valid phone number."
     }
   }
 });
@@ -55,7 +51,7 @@ if (Meteor.isClient) {
     Mesosphere.enrollForm.validate(data, function(errors, formFieldsObject){
       if(!errors){
         //Do what we need to do here;
-        template.find('form').reset();
+        // template.find('form').reset();
         Participants.insert(data, function(err, _id){
           if(!err){
             Session.set('currentParticipantId', _id);
