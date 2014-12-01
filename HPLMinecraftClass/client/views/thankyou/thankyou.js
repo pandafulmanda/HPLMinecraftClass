@@ -19,13 +19,8 @@ Template.thankyou.helpers({
 
     return seeYouString;
   }
-  // ,
-  // waitlist: function(){
-  //   var cnt = ParticipantsCounts.findOne({});
-  //   if(cnt > 2) {
-  //       return true;
-  //   } else {
-  //       return false;
-  //   }
-  // }
 });
+
+Template.thankyou.rendered = function(){
+  $.scrollTo($('#thankyou'), 100);
+}

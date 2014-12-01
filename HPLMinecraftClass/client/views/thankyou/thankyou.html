@@ -1,10 +1,8 @@
 <template name="thankyou">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <p class="greeting" style="margin-top: 0;">Hello {{name}}, we look forward to seeing you on <strong>{{classes}}</strong>!
+      <p class="greeting extra-spacing" id="thankyou">Thank you {{name}}. We look forward to seeing you on <strong>{{classes}}</strong>!
       </p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m20!1m8!1m3!1d3463.6295038342364!2d-95.369954!3d29.759434000000002!3m2!1i1024!2i768!4f13.1!4m9!1i0!3e6!4m0!4m5!1s0x8640bf39be73cd6b%3A0xbd97afbe2fd2ad03!2sHouston+Public+Library%2C+500+McKinney+St%2C+Houston%2C+TX+77002!3m2!1d29.759434!2d-95.36995399999999!5e0!3m2!1sen!2sus!4v1416806505238" width="100%" height="300" frameborder="0" style="border:0"></iframe>
-      <p class="greeting" style="margin-top: 0;"><a href="https://www.google.com/maps/place/Houston+Public+Library/@29.759434,-95.369954,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0xbd97afbe2fd2ad03" target="_blank">Click here</a> for directions.</p>
       <p class="greeting">
 <!--         {{#if waitlist}}
           You are now on the waitlist.  We will email you about availability!
@@ -12,6 +10,8 @@
           We will send you an email to remind you about class!
         <!-- {{/if}} -->
       </p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m20!1m8!1m3!1d3463.6295038342364!2d-95.369954!3d29.759434000000002!3m2!1i1024!2i768!4f13.1!4m9!1i0!3e6!4m0!4m5!1s0x8640bf39be73cd6b%3A0xbd97afbe2fd2ad03!2sHouston+Public+Library%2C+500+McKinney+St%2C+Houston%2C+TX+77002!3m2!1d29.759434!2d-95.36995399999999!5e0!3m2!1sen!2sus!4v1416806505238" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+      <p class="greeting" style="margin-top: 0;"><a href="https://www.google.com/maps/place/Houston+Public+Library/@29.759434,-95.369954,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0xbd97afbe2fd2ad03" target="_blank">Click here</a> for directions.</p>
       <p class="greeting">
         <a href="/">Click here to register someone else ☺</a>
       </p>

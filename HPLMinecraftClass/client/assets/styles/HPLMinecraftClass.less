@@ -1,22 +1,22 @@
 
-@font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Kreon Light'), local('Kreon-Light'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/foDwQzChAOJL0-zU6ynhJ3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
-}
-@font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Kreon Regular'), local('Kreon-Regular'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/D9qk1GYStfykk6PrrE7M_aCWcynf_cDxXwCLxiixG1c.woff) format('woff');
-}
-@font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Kreon Bold'), local('Kreon-Bold'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/lG8WSXDYq5VbwwKU5QHgb3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
-}
+// @font-face {
+//   font-family: 'Kreon';
+//   font-style: normal;
+//   font-weight: 300;
+//   src: local('Kreon Light'), local('Kreon-Light'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/foDwQzChAOJL0-zU6ynhJ3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+// }
+// @font-face {
+//   font-family: 'Kreon';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: local('Kreon Regular'), local('Kreon-Regular'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/D9qk1GYStfykk6PrrE7M_aCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+// }
+// @font-face {
+//   font-family: 'Kreon';
+//   font-style: normal;
+//   font-weight: 700;
+//   src: local('Kreon Bold'), local('Kreon-Bold'), url(http://themes.googleusercontent.com/static/fonts/kreon/v7/lG8WSXDYq5VbwwKU5QHgb3YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+// }
 
 @font-face {
   font-family: 'Roboto';
@@ -173,7 +173,7 @@ body{
     background-size: cover;
     background-attachment:fixed;
     height: 100%;
-    letter-spacing: 1px;
+    // letter-spacing: 1px;
 }
 @media (max-width: @screen-xs) {
   body{
@@ -201,7 +201,6 @@ input.form-control{
   border-style: none none none none;
   border-color: #ccc;
   border-width: 4px;
-  margin: 50px 10px;
   padding: 10px 0px;
   text-align: center;
 
@@ -210,12 +209,17 @@ input.form-control{
     padding: 0;
   }
 }
-.small {
-  font-size: .65em;
+.extra-spacing{
+  margin: 50px 10px;
 }
+
+.help-block{
+  margin: 0;
+}
+
 .help-block.meso-error{
-  font-weight: lighter;
   color: rgb(185, 6, 6);
+  padding: 0;
 }
 
 small{

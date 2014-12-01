@@ -40,7 +40,7 @@ Mesosphere({
     },
     'classes': {
       required: true,
-      message: 'Please choose to attend at least one class.'
+      message: 'Please click to attend at least one class.'
     }
   },
   onSuccess: function(formData, formHandle){
@@ -49,15 +49,7 @@ Mesosphere({
     $(".meso-error").removeClass("meso-error");    
   },
   onFailure: function(erroredFields, formHandle){
-    var mesoFormFields = this.fields;
-
-    _.each(erroredFields, function(field, fieldName){
-      if(mesoFormFields[fieldName] && mesoFormFields[fieldName].message){
-        field.message = mesoFormFields[fieldName].message;
-      }
-    });
-
-    Mesosphere.Utils.failureCallback(erroredFields, formHandle);
+    mesoFail.call(this, erroredFields, formHandle);
   }
 });
 
@@ -95,3 +87,16 @@ Mesosphere({
     $(".meso-error").removeClass("meso-error");    
   }
 });
+
+
+function mesoFail(erroredFields, formHandle){
+  var mesoFormFields = this.fields;
+
+  _.each(erroredFields, function(field, fieldName){
+    if(mesoFormFields[fieldName] && mesoFormFields[fieldName].message){
+      field.message = mesoFormFields[fieldName].message;
+    }
+  });
+
+  Mesosphere.Utils.failureCallback(erroredFields, formHandle);
+}
