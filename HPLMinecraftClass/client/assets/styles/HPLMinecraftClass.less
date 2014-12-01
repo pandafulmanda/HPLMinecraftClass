@@ -83,7 +83,8 @@
 // Core variables and mixins
 @import "/packages/bootstrap3-less/lib/less/variables.import.less";
 
-@brand-primary:         lighten(#BD10E0, 10%);
+@brand-primary: #BD10E0;
+@input-border-focus: @brand-primary;
 
 // Small screen / tablet
 @container-tablet:             ((720px + @grid-gutter-width));
@@ -101,9 +102,10 @@
 @container-lg:                 @container-large-desktop;
 
 @text-color: #FFF;
-@headings-color: #BD10E0;
+@text-color: #333;
+@headings-color: @brand-primary;
 
-@headings-font-weight: 200;
+@headings-font-weight: 300;
 @font-family-serif: 'Kreon', serif;
 @font-family-sans-serif: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
 // @headings-font-family:        @font-family-serif;
@@ -174,7 +176,7 @@ body{
     letter-spacing: 1px;
 }
 .container{
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(255, 255, 255, 0.9);
 }
 .form-group > label:not(.radio-inline){
     color: @brand-primary;
@@ -182,25 +184,25 @@ body{
     font-size: 1.5em;
 }
 input.form-control{
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #FFF;
-    font-weight: lighter;
-    letter-spacing: 2px;
+    // background-color: rgba(0, 0, 0, 0.1);
+    // color: #FFF;
+    font-weight: 300;
+    // letter-spacing: 2px;
 }
 .greeting {
-	font-weight: lighter;
-    font-size: 1.5em;
-    border-style: none none none none;
-    border-color: #ccc;
-    border-width: 4px;
-    margin: 50px 10px;
-    padding: 10px 0px;
-    text-align: center;
+	font-weight: 300;
+  font-size: 1.5em;
+  border-style: none none none none;
+  border-color: #ccc;
+  border-width: 4px;
+  margin: 50px 10px;
+  padding: 10px 0px;
+  text-align: center;
 
-    ul{
-        list-style: none;
-        padding: 0;
-    }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
 }
 .small {
   font-size: .65em;
@@ -211,12 +213,12 @@ input.form-control{
 }
 
 small{
-  font-weight: 200;
-  font-size: 0.75em;
+  font-weight: 300;
+  // font-size: 0.75em;
 }
 
 .like-input{
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #FFF;
   border: 1px solid #cccccc;
   padding: 6px 12px;
   border-radius: 4px;
@@ -227,12 +229,8 @@ small{
   padding-left: 0;
 
   p{
-    font-weight: 200;
+    font-weight: 300;
     margin-bottom: 0;
-  }
-
-  small{
-    color: #d033f0;
   }
 
   input{
@@ -241,6 +239,13 @@ small{
 
   input:checked + label{
     .like-input;
+
+    &:hover{
+      border-color: @brand-primary;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(208, 51, 240, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(208, 51, 240, 0.6);
+    }
   }
 
   label{
@@ -251,6 +256,10 @@ small{
 
     &:hover{
       .like-input;
+      border-color: @brand-primary;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(208, 51, 240, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(208, 51, 240, 0.6);
     }
   }
 }
