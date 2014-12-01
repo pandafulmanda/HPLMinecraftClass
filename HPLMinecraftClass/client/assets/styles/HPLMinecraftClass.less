@@ -209,3 +209,45 @@ input.form-control{
   font-weight: lighter;
   color: rgb(185, 6, 6);
 }
+
+.like-input{
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid #cccccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.classes{
+  list-style: none;
+  padding-left: 0;
+
+  p{
+    font-weight: 200;
+    margin-bottom: 0;
+  }
+
+  small{
+    font-weight: 200;
+    font-size: 0.75em;
+    color: #d033f0;
+  }
+
+  input{
+    display: none;
+  }
+
+  input:checked + label{
+    .like-input;
+  }
+
+  label{
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 7px 13px;
+
+    &:hover{
+      .like-input;
+    }
+  }
+}

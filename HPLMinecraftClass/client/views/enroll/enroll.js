@@ -1,7 +1,17 @@
 Template.enroll.events({'submit form' : function(event, template) {
   event.preventDefault();
   var data_array = Mesosphere.Utils.getFormData(template.find('form'));
-  var data = _.object(_.pluck(data_array, 'name'), _.pluck(data_array, 'value'));
+  var data = {};
+
+  // format the data from the form correctly
+  _(data_array).each(function(data_obj){
+    if(data_obj.name === 'class'){
+      data[data_obj.name] = data[data_obj.name] || [];
+      data[data_obj.name].push(data_obj.value);
+    }else{
+      data[data_obj.name] = data_obj.value;
+    }
+  });
 
   Mesosphere.enrollForm.validate(data, function(errors, formFieldsObject){
     if(!errors){
@@ -12,8 +22,6 @@ Template.enroll.events({'submit form' : function(event, template) {
         }
       });//, function(err) { /* handle error */ });
       // console.log("count is up to " + Participants.find().count())
-    }else{
-      // console.log(errors);
     }
   });
 }});

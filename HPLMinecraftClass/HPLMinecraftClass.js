@@ -20,13 +20,13 @@ Mesosphere({
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your first name!"
     },
     lastname: {
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your last name!"
     },
     age: {
       required: false,
@@ -37,12 +37,27 @@ Mesosphere({
       required: true,
       format: "phone",
       message: "Please enter a valid phone number."
+    },
+    'class': {
+      required: true,
+      message: 'Please choose to attend at least one class.'
     }
   },
   onSuccess: function(formData, formHandle){
     formHandle && formHandle[0] && formHandle[0].reset && formHandle[0].reset();
     $(".meso-error").text("");
     $(".meso-error").removeClass("meso-error");    
+  },
+  onFailure: function(erroredFields, formHandle){
+    var mesoFormFields = this.fields;
+
+    _.each(erroredFields, function(field, fieldName){
+      if(mesoFormFields[fieldName] && mesoFormFields[fieldName].message){
+        field.message = mesoFormFields[fieldName].message;
+      }
+    });
+
+    Mesosphere.Utils.failureCallback(erroredFields, formHandle);
   }
 });
 
@@ -60,13 +75,13 @@ Mesosphere({
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your first name!"
     },
     lastname: {
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your last name!"
     },
     age: {
       required: false,
