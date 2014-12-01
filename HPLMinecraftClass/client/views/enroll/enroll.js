@@ -1,4 +1,4 @@
-var blurredInputs = [];
+var watchedInputs = [];
 
 Template.enroll.events({
   'submit form' : function(event, template) {
@@ -8,7 +8,7 @@ Template.enroll.events({
 
     Mesosphere.enrollForm.validate(formInfo.data, function(errors, formFieldsObject){
       if(!errors){
-        blurredInputs = [];
+        watchedInputs = [];
         //Do what we need to do here;
         Participants.insert(formInfo.data, function(err, _id){
           if(!err){
@@ -17,15 +17,15 @@ Template.enroll.events({
         });//, function(err) { /* handle error */ });
         // console.log("count is up to " + Participants.find().count())
       } else {
-        blurredInputs = _.keys(errors);
+        watchedInputs = _.keys(errors);
         Mesosphere.Utils.failureCallback(errors, formInfo.$form);
         $.scrollTo($(formInfo.$form.find('.meso-error')[0]).parents('.form-group'), 100);
       }
     });
   },
-  'blur input' : validateInputs,
-  'keydown input' : validateInputs,
-  'change input' : validateInputs
+  'blur input[type=text]' : validateInputs,
+  'keyup input[type=text]' : validateInputs,
+  'change input[type=checkbox]' : validateInputs
 });
 
 Template.enroll.rendered = function(){
@@ -57,16 +57,29 @@ function formatTemplateFormData(template){
 function validateInputs(event, template){
 
   var formInfo = formatTemplateFormData(template),
-    $target = $(event.currentTarget);
+    $target = $(event.currentTarget),
+    targetName = $target.attr('name');
 
-  blurredInputs.push($target.attr('name'));
+  // if target isn't being watched yet
+  if(_.indexOf(watchedInputs, targetName) < 0){
+
+    if(event.type === 'keyup'){
+      // don't need to validate input on keyup yet since this input hasn't been blurred or changed yet
+      return;
+    }
+
+    // add target to list of inputs to watch
+    watchedInputs.push(targetName);    
+  }
 
   Mesosphere.enrollForm.validate(formInfo.data, function(errors, formFieldsObject){
     var inputError;
 
     if(errors){
-      inputError = _.pick(errors, blurredInputs);
+      inputError = _.pick(errors, watchedInputs);
       Mesosphere.Utils.failureCallback(inputError, formInfo.$form);
+    }else{
+      return;
     }
   });
 

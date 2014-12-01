@@ -44,13 +44,15 @@ Mesosphere({
     }
   },
   onSuccess: function(formData, formHandle){
-    formHandle && formHandle[0] && formHandle[0].reset && formHandle[0].reset();
+    // formHandle && formHandle[0] && formHandle[0].reset && formHandle[0].reset();
     $(".meso-error").text("");
-    $(".meso-error").removeClass("meso-error");    
+    $(".meso-error").removeClass("meso-error");
+    return;
   },
   onFailure: function(erroredFields, formHandle){
     mesoFail.call(this, erroredFields, formHandle);
-  }
+  },
+  disableSubmit: true
 });
 
 Mesosphere({
