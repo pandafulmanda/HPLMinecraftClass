@@ -5,7 +5,7 @@ Template.enroll.events({'submit form' : function(event, template) {
 
   // format the data from the form correctly
   _(data_array).each(function(data_obj){
-    if(data_obj.name === 'class'){
+    if(data_obj.name === 'classes'){
       data[data_obj.name] = data[data_obj.name] || [];
       data[data_obj.name].push(data_obj.value);
     }else{

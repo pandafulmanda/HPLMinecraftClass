@@ -38,7 +38,7 @@ Mesosphere({
       format: "phone",
       message: "Please enter a valid phone number."
     },
-    'class': {
+    'classes': {
       required: true,
       message: 'Please choose to attend at least one class.'
     }
