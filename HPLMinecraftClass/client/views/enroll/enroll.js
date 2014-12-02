@@ -23,13 +23,25 @@ Template.enroll.events({
       }
     });
   },
-  'blur input[type=text]' : validateInputs,
-  'keyup input[type=text]' : validateInputs,
-  'change input[type=checkbox]' : validateInputs
+  'blur input[type=text], keyup input[type=text], change input[type=checkbox]' : validateInputs
 });
 
 Template.enroll.rendered = function(){
   $("input[data-vm-mask-phone]").mask("(999) 999-9999");
+
+  $("input[name=classes]").change(function(){
+    var $input = $(this),
+      isClassChecked = $input.is(':checked'),
+      $li = $input.parents('li');
+
+    if(isClassChecked){
+      $li.addClass('active');
+    }else{
+      $li.removeClass('active');
+    }
+
+  });
+
 }
 
 function formatTemplateFormData(template){
