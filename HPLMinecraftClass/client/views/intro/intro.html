@@ -3,15 +3,7 @@
         <h1 class="text-center">Learn to code<br>&amp; make stuff for</h1>
         <img src="/assets/images/minecraft-logo.png" class="img-responsive">
         <div class="greeting extra-spacing">
-            <p>
-                Please join us for workshops at the<br/>
-                <a href="https://www.google.com/maps/place/Houston+Public+Library/@29.759434,-95.369954,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0xbd97afbe2fd2ad03" target="_blank">Houston Central Library</a> on
-            </p>
-            <ul>
-                <li><strong class="hidden-xs">December 13, 2014</strong><strong class="hidden-sm hidden-md hidden-lg">12/13/2014</strong>  (1 - 5 PM)</li>
-                <li><strong class="hidden-xs">December 20, 2014</strong><strong class="hidden-sm hidden-md hidden-lg">12/20/2014</strong>  (1 - 5 PM)</li>
-            </ul>
-            <small><i>For ages 10 - 14.</i></small>
+            {{> noUpcoming}}
         </div>
     </div>
 </template>
@@ -25,4 +17,19 @@
             </p>
         </div>
     </div>
+</template>
+<template name="noUpcoming">
+    <p>We are working on more classes!</p>
+</template>
+
+<template name="upcomingClass">
+    <p>
+        Please join us for workshops at the<br/>
+        <a href="https://www.google.com/maps/place/Houston+Public+Library/@29.759434,-95.369954,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0xbd97afbe2fd2ad03" target="_blank">Houston Central Library</a> on
+    </p>
+    <ul>
+        <li><strong class="hidden-xs">December 13, 2014</strong><strong class="hidden-sm hidden-md hidden-lg">12/13/2014</strong>  (1 - 5 PM)</li>
+        <li><strong class="hidden-xs">December 20, 2014</strong><strong class="hidden-sm hidden-md hidden-lg">12/20/2014</strong>  (1 - 5 PM)</li>
+    </ul>
+    <small><i>For ages 10 - 14.</i></small>
 </template>
