@@ -16,18 +16,3 @@ Template.maincontent.helpers({
   //   }
   // }
 });
-
-Template.thankyou.helpers({
-  name: function() {
-    return Participants.findOne({_id : Session.get('currentParticipantId')})['firstname'];
-  }
-  // ,
-  // waitlist: function(){
-  //   var cnt = ParticipantsCounts.findOne({});
-  //   if(cnt > 2) {
-  //       return true;
-  //   } else {
-  //       return false;
-  //   }
-  // }
-});

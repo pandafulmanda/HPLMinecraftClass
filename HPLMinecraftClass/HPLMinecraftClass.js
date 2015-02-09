@@ -20,13 +20,13 @@ Mesosphere({
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your first name!"
     },
     lastname: {
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your last name!"
     },
     age: {
       required: false,
@@ -37,13 +37,22 @@ Mesosphere({
       required: true,
       format: "phone",
       message: "Please enter a valid phone number."
+    },
+    'classes': {
+      required: true,
+      message: 'Please click to attend at least one class.'
     }
   },
   onSuccess: function(formData, formHandle){
-    formHandle && formHandle[0] && formHandle[0].reset && formHandle[0].reset();
+    // formHandle && formHandle[0] && formHandle[0].reset && formHandle[0].reset();
     $(".meso-error").text("");
-    $(".meso-error").removeClass("meso-error");    
-  }
+    $(".meso-error").removeClass("meso-error");
+    return;
+  },
+  onFailure: function(erroredFields, formHandle){
+    mesoFail.call(this, erroredFields, formHandle);
+  },
+  disableSubmit: true
 });
 
 Mesosphere({
@@ -60,13 +69,13 @@ Mesosphere({
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your first name!"
     },
     lastname: {
       required: true,
       transforms: ["clean", "capitalize"],
       format: "alphanumeric",
-      message: "Please check your first name!"
+      message: "Please enter your last name!"
     },
     age: {
       required: false,
@@ -80,3 +89,16 @@ Mesosphere({
     $(".meso-error").removeClass("meso-error");    
   }
 });
+
+
+function mesoFail(erroredFields, formHandle){
+  var mesoFormFields = this.fields;
+
+  _.each(erroredFields, function(field, fieldName){
+    if(mesoFormFields[fieldName] && mesoFormFields[fieldName].message){
+      field.message = mesoFormFields[fieldName].message;
+    }
+  });
+
+  Mesosphere.Utils.failureCallback(erroredFields, formHandle);
+}

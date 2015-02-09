@@ -34,6 +34,7 @@ minimongo@1.0.5
 mobile-status-bar@1.0.1
 mongo@1.0.8
 mrt:underscore-string-latest@2.3.3
+natestrauser:jquery-scrollto@1.4.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
 random@1.0.1
@@ -43,6 +44,7 @@ reload@1.1.1
 retry@1.0.1
 routepolicy@1.0.2
 session@1.0.4
+sewdn:masked-input@1.0.6
 spacebars-compiler@1.0.3
 spacebars@1.0.3
 standard-app-packages@1.0.3
