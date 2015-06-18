@@ -6,6 +6,21 @@ Participants.allow({
   }
 });
 
+
+Router.route('/', function () {
+  this.redirect('/minecraft-classes');
+});
+
+
+Router.route('/minecraft-classes', function () {
+  this.render('minecraft-classes', {
+    data: function () {
+      return;
+    }
+  });
+});
+
+
 Mesosphere({
   name: 'enrollForm',
   method: 'enroll',
